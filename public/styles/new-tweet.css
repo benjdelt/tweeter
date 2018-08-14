@@ -4,22 +4,17 @@
   background-color: #eee;
   border: 1px solid #A0A0A0;
   border-radius: 5px;
+  padding: 0 0.5em 0.5em;
 }
 
 .new-tweet h2 {
-  margin: 0.5em;
   border-bottom: 1px solid black;
 }
 
 .new-tweet form textarea {
-  width: 96%;
-  margin: 0 0.5em;
+  width: 100%;
   padding: 0.5em;
 } 
-
-.new-tweet input {
-  margin: 0.5em;
-}
 
 .counter {
   float: right;
