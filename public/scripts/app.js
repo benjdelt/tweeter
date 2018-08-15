@@ -60,23 +60,6 @@ const data = [
 
 $(function() {
 
-// Form submission with Ajax
-
-$("form").on("submit", function (event) {
-  event.preventDefault();
-  let newTweet = $(this).serialize();
-  $.post("/tweets", newTweet).done(function(response) {
-    console.log(response);
-  })
-})
-
-// Fetch tweets with Ajax
-
-function loadTweets() {
-
-}
-
-
 // Render tweets to the browser
 
 function renderTweets(tweets) {
@@ -167,6 +150,42 @@ function createTweetElement(tweetObject) {
   return $tweet;
 }
 
-renderTweets(data);
+
+function formValidation(content) {
+  if (content.length > 140) {
+    alert("Tweets cannot be longer than 140 characters!");
+    return false;
+    // Check if the content is empty or only white spaces
+  } else if (!content.match(/\S+/)) {
+    alert("The text area is empty!");
+    return false;
+  }
+  return content;
+}
+
+// Form submission with Ajax
+
+$("form").on("submit", function (event) {
+  event.preventDefault();
+  let newTweet = $(this).serialize();
+  validContent = formValidation($(this).find("textarea[name='text']").val());
+  if(validContent) {
+    $.post("/tweets", newTweet).done(function(response) {
+      console.log(response);
+    })
+  }
+})
+
+// Fetch tweets with Ajax
+
+function loadTweets() {
+  $.get("/tweets", function (tweets) {
+    renderTweets(tweets);
+  }, "json")
+}
+
+loadTweets();
+
+// renderTweets(data);
 
 })
