@@ -1,7 +1,7 @@
 .tweet {
   position: relative;
   top: 2em;
-  margin: 0 2em;
+  margin: 1em 2em 0 2em;
   border: 1px solid #eee;
   border-radius: 5px;
 }
