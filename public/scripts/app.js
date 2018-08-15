@@ -54,6 +54,43 @@ const data = [
   
 ];
 
+
+
+
+
+$(function() {
+
+// Form submission with Ajax
+
+$("form").on("submit", function (event) {
+  event.preventDefault();
+  let newTweet = $(this).serialize();
+  $.post("/tweets", newTweet).done(function(response) {
+    console.log(response);
+  })
+})
+
+// Fetch tweets with Ajax
+
+function loadTweets() {
+
+}
+
+
+// Render tweets to the browser
+
+function renderTweets(tweets) {
+    return tweets.forEach(t => {
+      return $('#tweets-container').append(createTweetElement(t));
+    })
+}
+
+// Turns JSON object from database into html
+
+function addElement(tag, className, content) {
+   return $(tag).addClass(className).html(content);
+}
+
 // Calaculates time elapsed since (from Stackoverflow)
 
 function timeSince(date) {
@@ -82,23 +119,6 @@ function timeSince(date) {
     return interval + " minutes";
   }
   return Math.floor(seconds) + " seconds";
-}
-
-
-$(function() {
-
-// Render tweets to the browser
-
-function renderTweets(tweets) {
-    return tweets.forEach(t => {
-      return $('#tweets-container').append(createTweetElement(t));
-    })
-}
-
-// Turns JSON object from database into html
-
-function addElement(tag, className, content) {
-   return $(tag).addClass(className).html(content);
 }
 
 function createHeader(tweetObject) {
