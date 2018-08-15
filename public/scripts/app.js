@@ -108,43 +108,41 @@ $(function() {
     })
 }
 
-// Fetch tweets with Ajax
+  // Fetch tweets with Ajax
 
-function loadTweets() {
-  $.get("/tweets", function (tweets) {
-    renderTweets(tweets);
-  }, "json")
-}
-
-function formValidation(content) {
-  if (content.length > 140) {
-    alert("Tweets cannot be longer than 140 characters!");
-    return false;
-    // Check if the content is empty or only white spaces
-  } else if (!content.match(/\S+/)) {
-    alert("The text area is empty!");
-    return false;
+  function loadTweets() {
+    $.get("/tweets", function (tweets) {
+      renderTweets(tweets);
+    }, "json")
   }
-  return content;
-}
 
-// Form submission with Ajax
-
-$("form").on("submit", function (event) {
-  event.preventDefault();
-  let newTweet = $(this).serialize();
-  validContent = formValidation($(this).find("textarea[name='text']").val());
-  if(validContent) {
-    $.post("/tweets", newTweet).done(function(response) {
-      $("#tweets-container").empty();
-      loadTweets();
-      $("textarea[name='text']").val('');
-    })
+  function formValidation(content) {
+    if (content.length > 140) {
+      alert("Tweets cannot be longer than 140 characters!");
+      return false;
+      // Check if the content is empty or only white spaces
+    } else if (!content.match(/\S+/)) {
+      alert("The text area is empty!");
+      return false;
+    }
+    return content;
   }
-})
 
-loadTweets();
+  // Form submission with Ajax
 
-// renderTweets(data);
+  $("form").on("submit", function (event) {
+    event.preventDefault();
+    let newTweet = $(this).serialize();
+    validContent = formValidation($(this).find("textarea[name='text']").val());
+    if(validContent) {
+      $.post("/tweets", newTweet).done(function(response) {
+        $("#tweets-container").empty();
+        loadTweets();
+        $("textarea[name='text']").val('');
+      })
+    }
+  })
+
+  loadTweets();
 
 })
