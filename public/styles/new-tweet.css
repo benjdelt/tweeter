@@ -25,3 +25,10 @@
 .negative {
   color: red;
 }
+
+.validation-error {
+  position: relative;
+  bottom:0.5em;
+  color: red;
+  font-weight: bold;
+}

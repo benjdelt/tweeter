@@ -118,11 +118,12 @@ $(function() {
 
   function formValidation(content) {
     if (content.length > 140) {
-      alert("Tweets cannot be longer than 140 characters!");
+      $(".new-tweet .validation-error")
+      .text("Tweets cannot be longer than 140 characters!").slideDown();
       return false;
       // Check if the content is empty or only white spaces
     } else if (!content.match(/\S+/)) {
-      alert("The text area is empty!");
+      $(".new-tweet .validation-error").text("This field is required").slideDown();
       return false;
     }
     return content;
@@ -136,6 +137,9 @@ $(function() {
     validContent = formValidation($(this).find("textarea[name='text']").val());
     if(validContent) {
       $.post("/tweets", newTweet).done(function(response) {
+        // Hide validation error messages
+        $(".new-tweet .validation-error").slideUp();
+        // Load new tweets and Empty the text area
         $("#tweets-container").empty();
         loadTweets();
         $("textarea[name='text']").val('');
