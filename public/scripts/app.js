@@ -97,30 +97,53 @@ function renderTweets(tweets) {
 
 // Turns JSON object from database into html
 
-function createTweetElement(tweetObject) {
-  let $tweet = $("<article>").addClass("tweet");
+function addElement(tag, className, content) {
+   return $(tag).addClass(className).html(content);
+}
+
+function createHeader(tweetObject) {
   let $header = $("<header>");
   let $avatar = $("<img>").attr("src", tweetObject.user.avatars.small);
   $header.append($avatar);
-  let $accName = $("<h3>").addClass("account-name").html(tweetObject.user.name);
+  let $accName = addElement("<h3>", "account-name", tweetObject.user.name);
   $header.append($accName);
-  let $handle = $("<span>").addClass("handle").html(tweetObject.user.handle);
+  let $handle = addElement("<span>", "handle", tweetObject.user.handle);
+
   $header.append($handle);
-  $tweet.append($header);
-  let $body = $("<p>").addClass("body").html(tweetObject.content.text);
-  $tweet.append($body);
+  return $header;
+}
+
+function createBody(tweetObject) {
+  return addElement("<p>", "body", tweetObject.content.text);
+
+}
+
+function createFooter(tweetObject) {
   let $footer = $("<footer>");
-  let $createdAt = $("<span>").addClass("created-at").html(timeSince(tweetObject.created_at));
+  let $createdAt = addElement("<span>", "created-at", timeSince(tweetObject.created_at));
+  
   $footer.append($createdAt);
-  let $icons = $("<span>").addClass("icons")
-  let $flag = $("<i>").addClass("material-icons").html("flag");
+  let $icons = addElement("<span>", "icons");
+
+  let $flag = addElement("<i>", "material-icons", "flag");
   $icons.append($flag);  
-  let $repeat = $("<i>").addClass("material-icons").html("repeat");
+  let $repeat = addElement("<i>", "material-icons", "repeat");
   $icons.append($repeat);
-  let $favorite = $("<i>").addClass("material-icons").html("favorite");
+  let $favorite = addElement("<i>", "material-icons", "favorite");
+
   $icons.append($favorite);
   $footer.append($icons);
-  $tweet.append($footer);
+  return $footer;
+}
+
+function createTweetElement(tweetObject) {
+  
+  let $tweet = $("<article>").addClass("tweet");
+
+  $tweet.append(createHeader(tweetObject));
+  $tweet.append(createBody(tweetObject));
+  $tweet.append(createFooter(tweetObject));
+
   return $tweet;
 }
 

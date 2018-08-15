@@ -7,8 +7,7 @@ $(document).ready(function(){
     $(this).siblings(".counter").html(count);
     if (count < 0) {
       $(this).siblings(".counter").addClass("negative");
-    }
-    if (count > 0) {
+    } else {
       $(this).siblings(".counter").removeClass("negative");
     }
   });
