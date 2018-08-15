@@ -60,14 +60,6 @@ const data = [
 
 $(function() {
 
-// Render tweets to the browser
-
-function renderTweets(tweets) {
-    return tweets.forEach(t => {
-      return $('#tweets-container').append(createTweetElement(t));
-    })
-}
-
 // Turns JSON object from database into html
 
 function addElement(tag, className, content) {
@@ -150,6 +142,22 @@ function createTweetElement(tweetObject) {
   return $tweet;
 }
 
+// Render tweets to the browser
+
+function renderTweets(tweets) {
+  tweets = tweets.reverse();
+  return tweets.forEach(t => {
+    return $('#tweets-container').append(createTweetElement(t));
+  })
+}
+
+// Fetch tweets with Ajax
+
+function loadTweets() {
+  $.get("/tweets", function (tweets) {
+    renderTweets(tweets);
+  }, "json")
+}
 
 function formValidation(content) {
   if (content.length > 140) {
@@ -171,18 +179,12 @@ $("form").on("submit", function (event) {
   validContent = formValidation($(this).find("textarea[name='text']").val());
   if(validContent) {
     $.post("/tweets", newTweet).done(function(response) {
-      console.log(response);
+      $("#tweets-container").empty();
+      loadTweets();
+      $("textarea[name='text']").val('');
     })
   }
 })
-
-// Fetch tweets with Ajax
-
-function loadTweets() {
-  $.get("/tweets", function (tweets) {
-    renderTweets(tweets);
-  }, "json")
-}
 
 loadTweets();
 
