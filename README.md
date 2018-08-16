@@ -4,6 +4,13 @@ A Twitter clone Single Page App (SPA) built with HTML, CSS, JS, jQuery and AJAX 
 
 ## Final Product
 
+![alt text](https://github.com/benjdelt/tweeter/blob/master/docs/new-tweet.png?raw=true "Creating a tweet")
+
+![alt text](https://github.com/benjdelt/tweeter/blob/master/docs/posted.png?raw=true "New tweet posted")
+
+![alt text](https://github.com/benjdelt/tweeter/blob/master/docs/error.png?raw=true "Tweet too long")
+
+
 
 ## Getting Started
 
