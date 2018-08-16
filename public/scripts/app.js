@@ -4,8 +4,6 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-// Simulated database
-
 $(function() {
 
   // Compose button slide new-tweet form up or down
@@ -16,21 +14,23 @@ $(function() {
       $("textarea[name='text']").focus();
     }  
   })
-
-  // Turns JSON object from database into html
-
+  
+  // Helper functions
+  
+  // Create an HTML elemnt
+  
   function addElement(tag, className, content) {
     return $(tag).addClass(className).text(content);
   }
-
-  // Calaculates time elapsed since (from Stackoverflow)
-
+  
+  // Calaculates time elapsed for footer timestamp (from Stackoverflow)
+  
   function timeSince(date) {
-
+    
     let seconds = Math.floor((new Date() - date) / 1000);
-
+    
     let interval = Math.floor(seconds / 31536000);
-
+    
     if (interval > 1) {
       return interval + " years";
     }
@@ -52,7 +52,9 @@ $(function() {
     }
     return Math.floor(seconds) + " seconds";
   }
-
+  
+  // Turns JSON object from database into html
+  
   function createHeader(tweetObject) {
     let $header = $("<header>");
     let $avatar = $("<img>").attr("src", tweetObject.user.avatars.small);
