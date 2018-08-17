@@ -5,56 +5,36 @@
   border: 1px solid #eee;
   border-radius: 5px;
 }
-
-.tweet:hover {
-  border: 1px solid #244755;
-  border-radius: 5px;
-}
-
 .tweet header {
   background-color: #eee;
   border-top: 1px solid #eee;
-  border-radius: 5px 5px 0 0;  
+  border-radius: 5px 5px 0 0;
   color: #3f7c8c;
 }
-
-.tweet:hover header {
-  color: #244755;
-  background-color: #ddd;
-  border: 1px solid #ddd;
-  border-radius: 5px 5px 0 0;
-}
-
 .tweet header img {
   margin: 0.5em;
 }
-
 .tweet header .account-name {
   display: inline;
   position: relative;
   bottom: 2em;
   font-size: 1.3em;
 }
-
 .tweet header .handle {
   float: right;
   margin: 0.5em;
 }
-
 .tweet .body {
   margin: 1.5em 1em;
 }
-
 .tweet footer {
   border-top: 1px solid #eee;
 }
-
 .tweet footer .created-at {
   line-height: 2.5;
   margin: 0.5em;
   font-size: 0.8em;
 }
-
 .tweet footer .icons {
   visibility: hidden;
   float: right;
@@ -63,11 +43,22 @@
   font-size: 0.5em;
   color: #00a087;
 }
+.tweet footer .icons i {
+  margin: 0 0.2em;
+}
 
+.tweet:hover {
+  border: 1px solid #244755;
+  border-radius: 5px;
+}
+.tweet:hover header {
+  color: #244755;
+  background-color: #ddd;
+  border: 1px solid #ddd;
+  border-radius: 5px 5px 0 0;
+}
 .tweet:hover footer .icons {
   visibility: visible;
 }
 
-.tweet footer .icons i {
-  margin: 0 0.2em;
-}
+/*# sourceMappingURL=tweets.css.map */

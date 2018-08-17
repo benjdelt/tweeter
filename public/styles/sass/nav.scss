@@ -1,0 +1,43 @@
+$size: 80px;
+
+#nav-bar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: $size;
+  padding: 0 2em;
+  background-color: #00a087;
+  color: #e8fdff;
+  z-index: 1;
+
+  .logo {
+    float: left;
+    height: $size;
+    width: $size;
+  }
+
+  .header {
+    margin-left: 10px;
+    float: left;
+    line-height: 2.5;
+    font-size: 2em;
+  }
+}
+
+
+
+#compose {
+  float: right;
+  position: relative;
+  top: 1em;
+  padding: 0.5em 1em 0.5em 1em;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #b1e2db;
+  color: #047261;
+}
+
+#compose:hover {
+  background-color: white;
+}

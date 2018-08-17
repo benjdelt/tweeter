@@ -6,29 +6,26 @@
   border-radius: 5px;
   padding: 0 0.5em 0.5em;
 }
-
-.new-tweet h2 {
+.new-tweet .h2 {
   border-bottom: 1px solid black;
 }
-
 .new-tweet form textarea {
   width: 100%;
   padding: 0.5em;
-} 
-
-.counter {
+}
+.new-tweet .counter {
   float: right;
   font-style: italic;
   margin: 0.5em;
 }
-
-.negative {
+.new-tweet .negative {
   color: red;
 }
-
-.validation-error {
+.new-tweet .validation-error {
   position: relative;
-  bottom:0.5em;
+  bottom: 0.5em;
   color: red;
   font-weight: bold;
 }
+
+/*# sourceMappingURL=new-tweet.css.map */

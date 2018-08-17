@@ -9,13 +9,11 @@
   color: #e8fdff;
   z-index: 1;
 }
-
 #nav-bar .logo {
   float: left;
   height: 80px;
   width: 80px;
 }
-
 #nav-bar .header {
   margin-left: 10px;
   float: left;
@@ -37,3 +35,5 @@
 #compose:hover {
   background-color: white;
 }
+
+/*# sourceMappingURL=nav.css.map */

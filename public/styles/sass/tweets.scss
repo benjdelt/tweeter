@@ -1,0 +1,75 @@
+.tweet {
+  position: relative;
+  top: 2em;
+  margin: 1em 2em 0 2em;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  
+  header {
+    background-color: #eee;
+    border-top: 1px solid #eee;
+    border-radius: 5px 5px 0 0;  
+    color: #3f7c8c;
+    
+    img {
+      margin: 0.5em;
+    }
+
+    .account-name {
+      display: inline;
+      position: relative;
+      bottom: 2em;
+      font-size: 1.3em;
+    }
+    
+    .handle {
+      float: right;
+      margin: 0.5em;
+    }
+  }
+  
+  .body {
+    margin: 1.5em 1em;
+  }
+  
+  footer {
+    border-top: 1px solid #eee;
+    
+    .created-at {
+      line-height: 2.5;
+      margin: 0.5em;
+      font-size: 0.8em;
+    }
+    
+    .icons {
+      visibility: hidden;
+      float: right;
+      line-height: 2.5;
+      margin: 0.5em;
+      font-size: 0.5em;
+      color: #00a087;
+    }
+    
+    .icons i {
+      margin: 0 0.2em;
+    }
+  }
+}
+  
+.tweet:hover {
+  border: 1px solid #244755;
+  border-radius: 5px;
+  
+  header {
+    color: #244755;
+    background-color: #ddd;
+    border: 1px solid #ddd;
+    border-radius: 5px 5px 0 0;
+  }
+
+  footer .icons {
+    visibility: visible;
+  }
+}
+
+
