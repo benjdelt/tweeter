@@ -54,22 +54,22 @@
       margin: 0 0.2em;
     }
   }
-}
+  &:hover {
+    border: 1px solid #244755;
+    border-radius: 5px;
+    
+    header {
+      color: #244755;
+      background-color: #ddd;
+      border: 1px solid #ddd;
+      border-radius: 5px 5px 0 0;
+    }
   
-.tweet:hover {
-  border: 1px solid #244755;
-  border-radius: 5px;
-  
-  header {
-    color: #244755;
-    background-color: #ddd;
-    border: 1px solid #ddd;
-    border-radius: 5px 5px 0 0;
+    footer .icons {
+      visibility: visible;
+    }
   }
+}
 
-  footer .icons {
-    visibility: visible;
-  }
-}
 
 
